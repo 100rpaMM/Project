@@ -113,15 +113,19 @@
         top: 0;
         left: 67%;
         font-size: 14px;
+        line-height: 23px;
         background: #f55123;
         border-radius: 50%;
         width: 25px;
         height: 23px; 
+        @media (max-width: 1024px) {
+          left: 72%;
+        }
+        @media (max-width: 768px) {
+          left: 75%;
+        }
         @media (max-width: 500px) {
-          font-size: 10px;
-          width: 15px;
-          height: 15px;
-          left: 77%;
+          left: 87%;
         }
       }
     }

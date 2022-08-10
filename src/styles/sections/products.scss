@@ -28,8 +28,11 @@
         width: 33%;
       }
 
-      @media (max-width: 858px) {
+      @media (max-width: 768px) {
         width: 50%;
+      }
+      @media (max-width: 500px) {
+        width: 100%;
       }
 
       .product-card {
@@ -93,6 +96,7 @@
 
         &__discount {
           @include poppins-font-bold-m;
+          text-align: center;
           color: $pink;
           max-width: 80%;
           position: absolute;
@@ -104,7 +108,8 @@
           background-color: $palePink;
 
           @media (max-width: 500px) {
-            @include poppins-font-bold-xs;
+            padding: 5px 0;
+            width: 13%;
           }
         }
 
@@ -117,8 +122,7 @@
           right: 3px;
 
           @media (max-width: 500px) {
-            width: 60%;
-            padding: 0 10px;
+            width: 50%;
           }
 
           &_add-basket {
@@ -144,7 +148,6 @@
             }
 
             @media (max-width: 500px) {
-              @include poppins-font-bold-xxs;
             }
           }
         }

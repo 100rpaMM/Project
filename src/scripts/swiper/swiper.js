@@ -21,7 +21,7 @@ new Swiper('.swiper-container', {
     slideToClickedSlide: true,
 
     autoplay: {
-        delay: 3000,
+        delay: 2500,
         stopOnLastSlide: true,
         disableOnInteraction: false,
     },

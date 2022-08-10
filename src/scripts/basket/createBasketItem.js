@@ -7,11 +7,11 @@ export function createBasketListItem(product) {
     const nameItem = createElement("p", "basket-list__item_name", product.name);
     const countItem = createElement("span", "basket-list__item_count", `${product.count} шт.`);
     const priceItemBlock = createElement("div", "basket-list__item_price");
-    const currentPriceItem = createElement("span", "basket-list__item_price-current", product.currentPrice);
-    const oldPriceItem = createElement("del", "", product.oldPrice);
+    const currentPriceItem = createElement("span", "basket-list__item_price-current", product.currentPrice + " р.");
+    const oldPriceItem = createElement("del", "", product.oldPrice + " р.");
 
-    priceItemBlock.innerHTML += currentPriceItem.outerHTML + oldPriceItem.outerHTML;
-    basketListItem.innerHTML += imageItem.outerHTML + nameItem.outerHTML + countItem.outerHTML + priceItemBlock.outerHTML;
+    priceItemBlock.innerHTML = currentPriceItem.outerHTML + oldPriceItem.outerHTML;
+    basketListItem.innerHTML = imageItem.outerHTML + nameItem.outerHTML + countItem.outerHTML + priceItemBlock.outerHTML;
 
     basketList.appendChild(basketListItem);
 }

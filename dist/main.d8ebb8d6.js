@@ -251,8 +251,8 @@ function getProductCard(id) {
   var parent = document.querySelector("#cardProduct_".concat(id));
   return {
     img: parent.querySelector("img").getAttribute("src"),
-    currentPrice: parent.querySelector('.product-info__price_current').innerText,
-    oldPrice: parent.querySelector('.product-info__price_old').innerText,
+    currentPrice: parent.querySelector('.product-info__price_current').innerText.split(' ')[0],
+    oldPrice: parent.querySelector('.product-info__price_old').innerText.split(' ')[0],
     name: parent.querySelector('.product-info__name').innerText,
     id: id,
     count: 1
@@ -376,10 +376,10 @@ function createBasketListItem(product) {
   var nameItem = (0, _createElement.createElement)("p", "basket-list__item_name", product.name);
   var countItem = (0, _createElement.createElement)("span", "basket-list__item_count", "".concat(product.count, " \u0448\u0442."));
   var priceItemBlock = (0, _createElement.createElement)("div", "basket-list__item_price");
-  var currentPriceItem = (0, _createElement.createElement)("span", "basket-list__item_price-current", product.currentPrice);
-  var oldPriceItem = (0, _createElement.createElement)("del", "", product.oldPrice);
-  priceItemBlock.innerHTML += currentPriceItem.outerHTML + oldPriceItem.outerHTML;
-  basketListItem.innerHTML += imageItem.outerHTML + nameItem.outerHTML + countItem.outerHTML + priceItemBlock.outerHTML;
+  var currentPriceItem = (0, _createElement.createElement)("span", "basket-list__item_price-current", product.currentPrice + " р.");
+  var oldPriceItem = (0, _createElement.createElement)("del", "", product.oldPrice + " р.");
+  priceItemBlock.innerHTML = currentPriceItem.outerHTML + oldPriceItem.outerHTML;
+  basketListItem.innerHTML = imageItem.outerHTML + nameItem.outerHTML + countItem.outerHTML + priceItemBlock.outerHTML;
 
   _elementsSearcher.basketList.appendChild(basketListItem);
 }
@@ -405,7 +405,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 function setProductCount(productItem, count) {
   var product = productItem.querySelector(".basket-list__item_count");
-  product.innerHTML = count + "&nbsp;\u0448\u0442.";
+  product.innerText = "".concat(count, " \u0448\u0442.");
 }
 
 function calcTotalPrice() {
@@ -417,7 +417,7 @@ function calcTotalPrice() {
   try {
     for (_iterator.s(); !(_step = _iterator.n()).done;) {
       var product = _step.value;
-      totalPrice += product.count * product.currentPrice.split(' ')[0];
+      totalPrice += product.count * product.currentPrice;
     }
   } catch (err) {
     _iterator.e(err);
@@ -425,7 +425,7 @@ function calcTotalPrice() {
     _iterator.f();
   }
 
-  _elementsSearcher.basketTotalPrice.innerHTML = "\u0418\u0442\u043E\u0433\u043E:&nbsp; ".concat(totalPrice.toFixed(2), " \u0440.");
+  _elementsSearcher.basketTotalPrice.innerText = "\u0418\u0442\u043E\u0433\u043E: ".concat(totalPrice.toFixed(2), " \u0440.");
 }
 
 function setBasketCount() {
@@ -11263,7 +11263,7 @@ new _swiperBundle.default('.swiper-container', {
   loop: true,
   slideToClickedSlide: true,
   autoplay: {
-    delay: 3000,
+    delay: 2500,
     stopOnLastSlide: true,
     disableOnInteraction: false
   },
@@ -11468,7 +11468,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64266" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59233" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
